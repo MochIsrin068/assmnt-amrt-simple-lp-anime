@@ -3,7 +3,8 @@ import ButtonBackToTop from "../../components/ButtonBackToTop";
 import Header from "../../components/Header";
 import InputSearch from "../../components/InputSearch";
 import Loader from "../../components/Loader";
-import MovieCard from "../../components/itemCard";
+import ItemCard from "../../components/ItemCard";
+
 import useHomePage from "../../hooks/useHomePage";
 
 export default function Home() {
@@ -23,10 +24,7 @@ export default function Home() {
                 })
               : anime.items.map((item: any) => {
                   return (
-                    <MovieCard
-                      item={item}
-                      onDirectToDetail={onDirectToDetail}
-                    />
+                    <ItemCard item={item} onDirectToDetail={onDirectToDetail} />
                   );
                 })}
           </div>
