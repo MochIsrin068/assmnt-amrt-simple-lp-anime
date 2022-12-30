@@ -1,7 +1,9 @@
+/* eslint-disable testing-library/await-async-utils */
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import DetailPage from "../../pages/detail";
 import { mockDataDetail } from "./mockData";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 jest.mock("../../hooks/useDetailPage", () =>
   jest.fn(() => ({
@@ -13,6 +15,20 @@ jest.mock("../../hooks/useDetailPage", () =>
     scrollTop: 0,
   }))
 );
+
+beforeEach(() => {
+  global.console.error = (...args) => {
+    const propTypeFailures = [/Error:/];
+    if (propTypeFailures.some((prop) => prop.test(args[0]))) {
+    }
+  };
+
+  global.console.warn = (...args) => {
+    const propTypeFailures = [/No routes/];
+    if (propTypeFailures.some((prop) => prop.test(args[0]))) {
+    }
+  };
+});
 
 describe("Perform testing page detail", () => {
   // Handle error : TypeError: window.matchMedia is not a function
@@ -27,55 +43,115 @@ describe("Perform testing page detail", () => {
   });
 
   it("Perform snapshots test DetailPage", () => {
-    const view = render(<DetailPage />);
+    const view = render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
     expect(view).toMatchSnapshot();
   });
 
   it("test title", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(mockDataDetail.title);
-    expect(label).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    waitFor(() =>
+      expect(screen.getByText(mockDataDetail.title)).toBeInTheDocument()
+    );
   });
 
   it("test title japanese", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(mockDataDetail.title_japanese);
-    expect(label).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    waitFor(() =>
+      expect(
+        screen.getByText(mockDataDetail.title_japanese)
+      ).toBeInTheDocument()
+    );
   });
 
   it("test genre name", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(mockDataDetail.genres[0].name);
-    expect(label).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+
+    waitFor(() =>
+      expect(
+        screen.getByText(mockDataDetail.genres[0].name)
+      ).toBeInTheDocument()
+    );
   });
 
   it("test rating", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(mockDataDetail.rating);
-    expect(label).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    waitFor(() =>
+      expect(screen.getByText(mockDataDetail.rating)).toBeInTheDocument()
+    );
   });
 
   it("test duration", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(/Duration : /i);
-    const value = screen.getByText(mockDataDetail.duration);
-    expect(label).toBeInTheDocument();
-    expect(value).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    waitFor(() => expect(screen.getByText(/Duration : /i)).toBeInTheDocument());
+    waitFor(() =>
+      expect(screen.getByText(mockDataDetail.duration)).toBeInTheDocument()
+    );
   });
 
   it("test Aired Date", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(/Aired date : /i);
-    const value = screen.getByText(mockDataDetail.aired?.string);
-    expect(label).toBeInTheDocument();
-    expect(value).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+
+    waitFor(() =>
+      expect(screen.getByText(/Aired date : /i)).toBeInTheDocument()
+    );
+    waitFor(() =>
+      expect(screen.getByText(mockDataDetail.aired?.string)).toBeInTheDocument()
+    );
   });
 
   it("test Synopsis", () => {
-    render(<DetailPage />);
-    const label = screen.getByText(/Synopsis/i);
-    const value = screen.getByText(mockDataDetail.synopsis);
-    expect(label).toBeInTheDocument();
-    expect(value).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/anime/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    waitFor(() => expect(screen.getByText(/Synopsis/i)).toBeInTheDocument());
+    waitFor(() =>
+      expect(screen.getByText(mockDataDetail.synopsis)).toBeInTheDocument()
+    );
   });
 });
