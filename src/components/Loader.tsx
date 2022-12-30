@@ -1,11 +1,12 @@
 import Skeleton from "react-loading-skeleton";
+import { TPropsLoader } from "../types/components.types";
 
 const CONTENT = {
   LIST: 1,
   DETAIL: 2,
 };
 
-const Loader = ({ content = CONTENT.LIST }) => {
+const Loader = ({ content = CONTENT.LIST }: TPropsLoader) => {
   return (
     <>
       {content === CONTENT.LIST ? (

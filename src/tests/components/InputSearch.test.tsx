@@ -15,7 +15,7 @@ describe("Perform testing component InputSearch", () => {
   });
 
   it("Perform snapshots test InputSearch", () => {
-    const view = render(<InputSearch />);
+    const view = render(<InputSearch onSearch={() => {}} />);
     expect(view).toMatchSnapshot();
   });
 });

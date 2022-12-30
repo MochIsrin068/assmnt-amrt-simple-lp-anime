@@ -15,7 +15,30 @@ describe("Perform testing component ItemCard", () => {
   });
 
   it("Perform snapshots test ItemCard", () => {
-    const view = render(<ItemCard />);
+    const view = render(
+      <ItemCard
+        onDirectToDetail={() => {}}
+        item={{
+          mal_id: 8,
+          title: "Movie title",
+          aired: {
+            string: "29 nov 2022",
+            duration: "40 min",
+          },
+          genres: [
+            {
+              mal_id: "",
+              name: "",
+            },
+          ],
+          images: {
+            webp: {
+              image_url: "",
+            },
+          },
+        }}
+      />
+    );
     expect(view).toMatchSnapshot();
   });
 });

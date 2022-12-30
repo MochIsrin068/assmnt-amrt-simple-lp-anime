@@ -1,11 +1,11 @@
-import { PropsHeader } from "../types/components.types";
+import { TPropsHeader } from "../types/components.types";
 import IconBack from "../assets/arrow-back.png";
 
 export default function Header({
   isHeaderWithAction,
   backgroundImageUrl,
   onAction,
-}: PropsHeader) {
+}: TPropsHeader) {
   return (
     <>
       <header

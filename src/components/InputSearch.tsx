@@ -1,6 +1,6 @@
-import React from "react";
+import { TPropsInputSearch } from "../types/components.types";
 
-export default function InputSearch({ onSearch, onClearSearch }: any) {
+export default function InputSearch({ onSearch }: TPropsInputSearch) {
   return (
     <>
       <div className="input-search">

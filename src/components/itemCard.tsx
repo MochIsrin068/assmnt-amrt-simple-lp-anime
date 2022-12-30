@@ -1,4 +1,6 @@
-const ItemCard = ({ item, onDirectToDetail }: any) => {
+import { TPropsItemCard, TGenreItem } from "../types/components.types";
+
+const ItemCard = ({ item, onDirectToDetail }: TPropsItemCard) => {
   return (
     <>
       <div className="itemCard" onClick={() => onDirectToDetail(item)}>
@@ -8,7 +10,7 @@ const ItemCard = ({ item, onDirectToDetail }: any) => {
           <p>{item.aired.string}</p>
           <p>{item.aired.duration}</p>
           <div className="itemCard__info__genre">
-            {item.genres.map((genre: any) => (
+            {item.genres.map((genre: TGenreItem) => (
               <span key={genre?.mal_id}>{genre?.name}</span>
             ))}
           </div>

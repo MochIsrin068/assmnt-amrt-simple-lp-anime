@@ -24,7 +24,11 @@ export default function Home() {
                 })
               : anime.items.map((item: any) => {
                   return (
-                    <ItemCard item={item} onDirectToDetail={onDirectToDetail} />
+                    <ItemCard
+                      item={item}
+                      onDirectToDetail={onDirectToDetail}
+                      key={item?.mal_id}
+                    />
                   );
                 })}
           </div>

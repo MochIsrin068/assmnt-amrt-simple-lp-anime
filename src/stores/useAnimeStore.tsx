@@ -8,8 +8,7 @@ const useStoreAddCostSubmission = create(
 
       setAnimeDetail: (animeData: any) =>
         set((state: any) => ({ animeDetail: animeData })),
-      resetAnimeDetail: (animeData: any) =>
-        set((state: any) => ({ animeDetail: null })),
+      resetAnimeDetail: () => set((state: any) => ({ animeDetail: null })),
     }),
     { name: "anime-data" }
   )

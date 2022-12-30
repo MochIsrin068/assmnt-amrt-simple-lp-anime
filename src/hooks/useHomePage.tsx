@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import shallow from "zustand/shallow";
 import { useNavigate } from "react-router-dom";
 import useDebounce from "../helpers/useDebounce";
 import { getAnime } from "../services/anime.service";
 import useAnimeStore from "../stores/useAnimeStore";
+import { TEventSearch } from "../types/hooks.types";
+import { TItemAnimeCad } from "../types/components.types";
 
 export default function useHomePage() {
   const navigate = useNavigate();
@@ -82,16 +85,15 @@ export default function useHomePage() {
     }));
   };
 
-  const onSearch = useDebounce(async (event: any) => {
-    event?.preventDefault();
-    const newKeyword = event.target.value;
+  const onSearch = useDebounce(async (event: TEventSearch) => {
+    const newKeyword = event?.target?.value;
     setAnime((prevState) => ({
       ...prevState,
       parameters: { ...prevState.parameters, q: newKeyword, page: 1 },
     }));
   }, 300);
 
-  const onDirectToDetail = (animeData: any) => {
+  const onDirectToDetail = (animeData: TItemAnimeCad) => {
     setAnimeDetail(animeData);
     navigate(`/anime/${animeData.mal_id}`);
   };

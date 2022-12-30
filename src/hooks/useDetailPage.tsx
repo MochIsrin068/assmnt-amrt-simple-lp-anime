@@ -1,7 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import shallow from "zustand/shallow";
 import { useNavigate, useParams } from "react-router-dom";
-import useDebounce from "../helpers/useDebounce";
 import { getAnimeDetail } from "../services/anime.service";
 import useAnimeStore from "../stores/useAnimeStore";
 
