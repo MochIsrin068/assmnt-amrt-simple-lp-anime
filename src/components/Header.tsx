@@ -9,6 +9,7 @@ export default function Header({
   return (
     <>
       <header
+        data-testid="header-container"
         className={`header ${
           isHeaderWithAction ? "--header-action" : "--header-home"
         }`}
@@ -20,8 +21,8 @@ export default function Header({
       >
         {isHeaderWithAction ? (
           <div className="header__back-menu">
-            <span onClick={onAction}>
-              <img src={IconBack} alt="<" />
+            <span onClick={onAction} data-testid="header-back-menu">
+              <img src={IconBack} alt="<" data-testid="icon-arrow-back" />
               Back
             </span>
           </div>

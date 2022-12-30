@@ -8,6 +8,7 @@ export default function InputSearch({ onSearch }: TPropsInputSearch) {
           type="text"
           placeholder="Search anime movie..."
           onChange={onSearch}
+          data-testid="input-search"
         />
       </div>
     </>

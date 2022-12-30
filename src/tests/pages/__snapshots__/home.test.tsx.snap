@@ -10,6 +10,7 @@ Object {
       >
         <header
           class="header --header-home"
+          data-testid="header-container"
         >
           <div
             class="header__jumbotron"
@@ -27,6 +28,7 @@ Object {
           class="input-search"
         >
           <input
+            data-testid="input-search"
             placeholder="Search anime movie..."
             type="text"
           />
@@ -293,6 +295,7 @@ Object {
     >
       <header
         class="header --header-home"
+        data-testid="header-container"
       >
         <div
           class="header__jumbotron"
@@ -310,6 +313,7 @@ Object {
         class="input-search"
       >
         <input
+          data-testid="input-search"
           placeholder="Search anime movie..."
           type="text"
         />

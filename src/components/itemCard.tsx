@@ -4,7 +4,11 @@ const ItemCard = ({ item, onDirectToDetail }: TPropsItemCard) => {
   return (
     <>
       <div className="itemCard" onClick={() => onDirectToDetail(item)}>
-        <img src={`${item.images.webp.image_url}`} alt="" />
+        <img
+          src={`${item.images.webp.image_url}`}
+          alt=""
+          data-testid="item-image"
+        />
         <div className="itemCard__info">
           <h3 title={item.title}>{item.title}</h3>
           <p>{item.aired.string}</p>
