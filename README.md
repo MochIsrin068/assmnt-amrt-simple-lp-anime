@@ -24,3 +24,21 @@ you can follow the following instructions:
     - run "docker compose up"
     - visit "localhost:8080"
 ```
+
+## How To Run Unit Testing
+
+you can follow the following instructions:
+
+```
+    - clone this repo
+    - open terminal
+    - run "yarn test"
+```
+
+if have error snapshot, you can follow the following instructions:
+
+```
+    - delete "__snapshots__" folder on components / pages
+    - open terminal
+    - run "yarn test"
+```
