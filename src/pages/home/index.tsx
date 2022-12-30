@@ -19,8 +19,8 @@ export default function Home() {
         <div className="home__content">
           <div className="home__content__list">
             {anime.isLoading
-              ? Array.apply(null, Array(7)).map(() => {
-                  return <Loader content={1} />;
+              ? Array.apply(null, Array(7)).map((number, index) => {
+                  return <Loader content={1} key={index} />;
                 })
               : anime.items.map((item: any) => {
                   return (
