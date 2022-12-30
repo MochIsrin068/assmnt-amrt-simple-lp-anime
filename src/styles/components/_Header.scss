@@ -1,0 +1,87 @@
+.header{
+    display: flex;
+    align-items: center;
+
+    padding: 82px 60px; 
+    color: #fff;
+    background-size: cover;
+    font-family: $fontSecondary;
+    border-radius: 0 0 20px 20px;
+    
+    @include phone{
+        padding: 62px 20px; 
+        border-radius: 0 0 30px 30px;
+    }
+
+
+    &__back-menu{
+        cursor: pointer;
+        color: #fff;
+        font-weight: bold;
+        font-size: 22px;
+
+        @include phone{
+            font-size: 16px;
+        }
+
+        >span{
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 22px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+            >img{
+                margin-right: 10px;
+            }
+
+            @include phone{
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__jumbotron{
+        >h1{
+            font-size: 54px;
+
+            @include phone{
+                font-size: 42px;
+            }    
+        }
+
+        >p{
+            font-size: 28px;
+            margin-top: 10px;
+
+            @include phone{
+                font-size: 16px;
+            }
+    
+        }
+    }
+}
+
+.--header-action{
+    align-items: flex-start;
+
+    height: 250px;
+    background-color: #ddd;
+    border-radius: 0 0 20px 20px;
+
+    padding: 40px 70px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+
+    @include phone{
+        padding: 20px;
+        height: 200px;
+    }
+}
+
+.--header-home{
+    background: url('../../assets/banner.png');
+    background-size: cover;
+    background-position: center;
+}

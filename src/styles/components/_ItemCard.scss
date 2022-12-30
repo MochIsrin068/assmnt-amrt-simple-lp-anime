@@ -1,0 +1,67 @@
+.itemCard{
+    width: 193.09px;
+    background-color: #050E12;
+    cursor: pointer;
+
+    @include phone{
+        width: 100%;
+    }
+    
+    &:hover{
+        box-shadow: 0px 0px 10px 4px #102b37;
+    }
+
+    >img{
+        width: 193.09px;
+        background-color: #ddd;
+        height : 280px;
+
+        @include phone{
+            width: 100%;
+            object-fit: cover;
+            height : 280px;
+        }
+    }
+
+    &__info{
+        padding: 16px;
+
+        >h3{
+            color: #B6B6B6;
+            font-size: 18px;
+            font-weight: bold;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+
+            @include phone{
+                font-size: 16px;
+            }
+        }
+
+        >p{
+            color: #828282;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        &__genre{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            >span{
+                font-size: 10px;
+                padding: 4px 6px;
+                margin-right: 4px;
+                margin-bottom: 6px;
+                color: white;
+                background: #2D3240;
+                border-radius: 6px;
+            }
+        }
+    }
+}

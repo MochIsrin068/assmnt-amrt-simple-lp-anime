@@ -1,0 +1,16 @@
+// BASE
+@import './base/reset';
+@import './base/mq';
+
+// PAGES
+@import './pages/home';
+@import './pages/detail';
+
+// COMPONENTS
+@import './components/Header';
+@import './components/Loader';
+@import './components/ItemCard';
+@import './components/InputSearch';
+
+// Utils
+@import 'react-loading-skeleton/dist/skeleton.css'
