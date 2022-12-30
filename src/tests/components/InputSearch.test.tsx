@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/await-async-utils */
 import React from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import InputSearch from "../../components/InputSearch";
 
 describe("Perform testing component InputSearch", () => {
